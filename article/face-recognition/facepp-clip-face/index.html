@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python - Doarakko WorkSpace</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u300cFace++ Detect API\u300d\u3067\u30ed\u30fc\u30ab\u30eb\u753b\u50cf\u304b\u3089\u4e00\u5b9a\u6761\u4ef6\u3092\u6e80\u305f\u3059\u9854\u3092\u5207\u308a\u53d6\u308b in Python";
+    var mkdocs_page_input_path = "article/face-recognition/facepp-clip-face.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Doarakko WorkSpace</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Doarakko WorkSpace</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Article</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../">Article</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Challenge</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../challenge/sphinx/">ドキュメント作成によく使われているカッコいいテーマを使って Github Pages を作ってみた</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../challenge/xonsh/">話題沸騰中の「Xonsh」というものを触ってみました</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Coursera</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../coursera/coursera-kaggle-1/">仕事をしながら Coursera の Kaggle コースを受けてみる ①</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../coursera/coursera-kaggle-2/">仕事をしながら Coursera の Kaggle コースを受けてみる ②</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Etc</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../etc/attention-github-pages-branch-name/">【GitHub Pages】Web ページを公開する際のブランチ名</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../etc/chatwork-post-image/">ChatWork に画像をアップロード in Python</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Face recognition</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#face-detect-api-in-python">「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#_1">概要</a></li>
+        
+            <li><a class="toctree-l5" href="#_2">注意点</a></li>
+        
+            <li><a class="toctree-l5" href="#1">1. はじめに</a></li>
+        
+            <li><a class="toctree-l5" href="#2">2. 実行環境</a></li>
+        
+            <li><a class="toctree-l5" href="#3">3. 必要なもの</a></li>
+        
+            <li><a class="toctree-l5" href="#4">4. ディレクリ構成</a></li>
+        
+            <li><a class="toctree-l5" href="#5">5. プログラム</a></li>
+        
+            <li><a class="toctree-l5" href="#6">6. 実行手順</a></li>
+        
+            <li><a class="toctree-l5" href="#7">7. おわりに</a></li>
+        
+            <li><a class="toctree-l5" href="#hints">Hints</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Heroku</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../heroku/attention-google-api-python-client-in-heroku/">【Heroku】google-api-python-client を使用する際の注意点</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Kaggle</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../kaggle/kaggle-api-in-python/">「Kaggle API」を Python で実行してみた</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../kaggle/kaggle-competitions-calendar/">Kaggle の Google Calendar を作りました</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../kaggle/kaggle-kernel-notification/">【Kaggle】Python + Heroku で新規投稿された Kernel を Slack に通知</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Scraping</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../scraping/excite-image-scraping/">Excite image scraping</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../scraping/get-connpass-event-info/">Connpass のイベント情報を取得する in Python</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../scraping/get-youtube-comment/">Youtube のコメントを取得する in Python</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Event</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../event/">Event</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../event/apache-arrow-tokyo-meetup-2018/">Apache Arrow東京ミートアップ2018</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../event/julia-tokyo-8/">JuliaTokyo #8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../event/pre-event-baseball-data-hackathon/">[【プレイベント】パ・リーグ×パーソル　ベースボールデータハッカソン](https://techplay.jp/event/688365)</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dena techcon 2019</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/">[DeNA TechCon 2019](https://techcon.dena.com/2019/)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/dena-and-aws/">【対談：DeNA x AWS】クラウドジャーニーのこれまでとこれから</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/dena-and-gcp/">DeNA と Google Cloud Platform</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/game-cheat-step/">スマホゲームのチート手法とその対策</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/qa-test/">DeNAの品質を支えるQAの取り組み 〜標準化から実践まで〜</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/work-and-kaggle/">パネルディスカッション：データサイエンスの競技者、Kagglerたちが活躍する職場とは</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Note</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../note/">Note</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/command/">Command</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/github/">GitHub</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/heroku/">Heroku</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/mkdocs/">MkDocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/sphinx/">Sphinx</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Doarakko WorkSpace</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Face recognition &raquo;</li>
+        
+      
+        
+          <li>Article &raquo;</li>
+        
+      
+    
+    <li>「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="face-detect-api-in-python">「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python</h1>
+<h2 id="_1">概要</h2>
+<p>「<a href="https://www.faceplusplus.com/face-detection/">Face++ Detect API</a>」を使用して, ローカル画像から顔を検出し, 顔の切り取りを行います.
+顔の角度・検出した顔の数・瞳孔間の距離から, 一定条件を満たす顔のみ切り取りを行うプログラムを作成しました.
+<img alt="image.png" src="https://qiita-image-store.s3.amazonaws.com/0/245792/b8de8352-0e4d-6e99-e606-325a105ac94e.png" /></p>
+<h2 id="_2">注意点</h2>
+<p>・本プログラムの使用範囲内では, API使用料は無料（2018/4/8）です. 詳しい内容については各自<a href="https://console.faceplusplus.com/documents/5679127">Reference</a>を確認してください.
+・<a href="https://www.faceplusplus.com/">Face++</a>のアカウント作成方法の説明はありません.</p>
+<h2 id="1">1. はじめに</h2>
+<p>「<a href="https://www.faceplusplus.com/face-detection/">Face++ Detect API</a>」を使用して, ローカル画像から顔を検出し, 顔の切り取りを行います.<br />
+顔が正面を向いていて, 一定サイズ以上大きい顔画像のみを取得することを目的とにします.<br />
+そのため, 以下の条件を満たす顔画像は顔の切り取りは行いません.</p>
+<p>・検出した顔の数が0または複数<br />
+・顔の横揺れの角度が15°以上または-15°以下<br />
+・顔の縦揺れの角度が10°以上または-10°以下<br />
+・瞳孔間の距離が40ピクセル未満  </p>
+<p>取得した顔の特徴量を後で使用することを想定するため, レスポンスをJSON形式で保存しました.<br />
+その後, JSONファイルをロードして顔の切り取りを行います.</p>
+<h2 id="2">2. 実行環境</h2>
+<p>・mac os 10.13.3<br />
+・anaconda3-5.1.0<br />
+・pip 9.0.3<br />
+・opencv-python 3.4.0.12<br />
+・Face++ Detect API v3.0  </p>
+<h2 id="3">3. 必要なもの</h2>
+<p>・Face++アカウント<br />
+　- アカウント作成の際に電話番号が必要</p>
+<p>・ Face++ API Key</p>
+<h2 id="4">4. ディレクリ構成</h2>
+<pre><code>./
+├── clip_face.py
+├── data
+├── detect_image.py
+└── image
+    ├── error
+    ├── face
+    └── original
+</code></pre>
+
+<h2 id="5">5. プログラム</h2>
+<p>detect_image.py<br />
+'return_attributes' は, ',' の後にスペースを入れるとエラーになるので注意してください</p>
+<p>```python:detect_image.py
+response = requests.post(
+    endpoint + '/facepp/v3/detect',
+    {
+        'api_key': API_KEY,
+        'api_secret': API_SECRET,
+        # 'image_url': img_url,
+        'image_base64': img_file,
+        'return_landmark': 1,
+        'return_attributes': 'headpose,eyestatus,facequality,mouthstatus,eyegaze'
+    }
+)</p>
+<pre><code>clip_face.py
+目的に合わせて下部分を変更・追加・削除してください
+
+```python:clip_face.py
+#指定した条件を満たす顔画像か判断する関数
+def judge_noise_image(resources):
+    #検出された顔の数
+    face_num = len(resources['faces'])
+    # 検出された顔の数が1以外の場合
+    if face_num != 1:
+        print('[Remove] face_num = {}'.format(face_num), end=' ')
+        return -1
+
+    #ランドマークの数
+    landmark_num = len(resources['faces'][0]['landmark'])
+    # 一部のランドマークが取得できなかった場合
+    if landmark_num != 83:
+        print('[Remove] landmark_num = {}'.format(landmark_num), end=' ')
+        return -1
+
+    #顔の向きを取得
+    yaw = resources['faces'][0]['attributes']['headpose']['yaw_angle']
+    pitch = resources['faces'][0]['attributes']['headpose']['pitch_angle']
+    # roll = resources['faces'][0]['attributes']['headpose']['roll_angle']
+    # yaw角度が15°以上または-15°以下の場合
+    if yaw &gt;= 15 or yaw &lt;= -15:
+        print('[Remove] yaw = {}'.format(yaw), end=' ')
+        return -1
+    # pitch角度が10°以上または-10°以下の場合
+    elif pitch &gt;= 10 or pitch &lt;= -10:
+        print('[Remove] pitch = {}'.format(pitch), end=' ')
+        return -1
+
+    # 左目の瞳孔のy座標
+    left_eye_pupil_y = resources['faces'][0]['landmark']['left_eye_pupil']['y']
+    # 左目の瞳孔のx座標
+    left_eye_pupil_x = resources['faces'][0]['landmark']['left_eye_pupil']['x']
+    # 右目の瞳孔のy座標
+    right_eye_pupil_y = resources['faces'][0]['landmark']['right_eye_pupil']['y']
+    # 右目の瞳孔のy座標
+    right_eye_pupil_x = resources['faces'][0]['landmark']['right_eye_pupil']['x']
+    # 瞳孔間の距離
+    pupil_dis = math.sqrt((left_eye_pupil_y - right_eye_pupil_y) ** 2 + (left_eye_pupil_x - right_eye_pupil_x) ** 2)
+    # 瞳孔間の距離が40ピクセル未満の場合
+    if pupil_dis &lt; 40:
+        print('[Remove] pupil_dis = {}'.format(pupil_dis), end=' ')
+        return -1
+    return 0
+</code></pre>
+
+<h2 id="6">6. 実行手順</h2>
+<ol>
+<li>pip で opencv をインストール</li>
+</ol>
+<pre><code>$ pip install opencv-python
+</code></pre>
+
+<ol>
+<li>git clone</li>
+</ol>
+<pre><code>$ git clone https://github.com/Doarakko/face-recognition
+$ cd facepp-api-clip-face
+</code></pre>
+
+<ol>
+<li>「API KEY」と「API SECRET」を入力
+<img alt="facepp.jpg" src="https://qiita-image-store.s3.amazonaws.com/0/245792/0218f4ba-b158-7f8e-3398-2b1b0d73f52b.jpeg" /></li>
+</ol>
+<p>```python:detect_image.py
+API_KEY = 'aaabbbccc'
+API_SECRET = 'xxxyyyzzz'</p>
+<pre><code>
+4. 顔認識する画像を ./image/original 下に置く  
+数に制限はなく, 名前は自由です
+
+</code></pre>
+
+<p>./image/original/
+├── person0
+│   ├── person0_0.jpg
+│   ├── person0_1.jpg
+│   ├── person0_2.jpg
+│   ├── person0_3.jpg
+│   └── person0_4.jpg
+├── person1
+│   ├── person1_0.jpg
+│   ├── person1_1.jpg
+│   ├── person1_2.jpg
+│   ├── person1_3.jpg
+│   └── person1_4.jpg
+└── person2
+    ├── person2_0.jpg
+    ├── person2_1.jpg
+    ├── person2_2.jpg
+    ├── person2_3.jpg
+    └── person2_4.jpg</p>
+<pre><code>5. 「[Face++ Detect API](https://www.faceplusplus.com/face-detection/)」にリクエストを送り, レスポンスをJSON形式で保存します
+
+</code></pre>
+
+<p>$ python detect_image.py</p>
+<pre><code>
+6. 保存したJSONファイルをロードして, 取得した数値から顔を切り取ります
+
+</code></pre>
+
+<p>$ python clip_face.py
+```</p>
+<h2 id="7">7. おわりに</h2>
+<p>「<a href="https://www.faceplusplus.com/face-detection/">Face++ Detect API</a>」では大量の特徴量を取得でき, 本プログラムではその一部しか使用していません.<br />
+各自<a href="https://console.faceplusplus.com/documents/5679127">Reference</a>を確認して, プログラムをカスタマイズしてください.</p>
+<h2 id="hints">Hints</h2>
+<ul>
+<li><a href="https://github.com/Doarakko/face-recognition/tree/master/facepp-api-clip-face">Code</a></li>
+<li><a href="https://qiita.com/Doarakko/items/bf33d9eb102871224ce1">Qiita</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../heroku/attention-google-api-python-client-in-heroku/" class="btn btn-neutral float-right" title="【Heroku】google-api-python-client を使用する際の注意点">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../etc/chatwork-post-image/" class="btn btn-neutral" title="ChatWork に画像をアップロード in Python"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../etc/chatwork-post-image/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../heroku/attention-google-api-python-client-in-heroku/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

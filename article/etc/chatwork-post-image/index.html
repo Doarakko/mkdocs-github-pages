@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>ChatWork に画像をアップロード in Python - Doarakko WorkSpace</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ChatWork \u306b\u753b\u50cf\u3092\u30a2\u30c3\u30d7\u30ed\u30fc\u30c9 in Python";
+    var mkdocs_page_input_path = "article/etc/chatwork-post-image.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Doarakko WorkSpace</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Doarakko WorkSpace</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Article</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../">Article</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Challenge</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../challenge/sphinx/">ドキュメント作成によく使われているカッコいいテーマを使って Github Pages を作ってみた</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../challenge/xonsh/">話題沸騰中の「Xonsh」というものを触ってみました</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Coursera</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../coursera/coursera-kaggle-1/">仕事をしながら Coursera の Kaggle コースを受けてみる ①</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../coursera/coursera-kaggle-2/">仕事をしながら Coursera の Kaggle コースを受けてみる ②</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Etc</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../attention-github-pages-branch-name/">【GitHub Pages】Web ページを公開する際のブランチ名</a>
+                </li>
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">ChatWork に画像をアップロード in Python</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#chatwork-in-python">ChatWork に画像をアップロード in Python</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#requirement">Requirement</a></li>
+        
+            <li><a class="toctree-l5" href="#program">Program</a></li>
+        
+            <li><a class="toctree-l5" href="#reference">Reference</a></li>
+        
+            <li><a class="toctree-l5" href="#hints">Hints</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Face recognition</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../face-recognition/facepp-clip-face/">「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Heroku</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../heroku/attention-google-api-python-client-in-heroku/">【Heroku】google-api-python-client を使用する際の注意点</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Kaggle</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../kaggle/kaggle-api-in-python/">「Kaggle API」を Python で実行してみた</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../kaggle/kaggle-competitions-calendar/">Kaggle の Google Calendar を作りました</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../kaggle/kaggle-kernel-notification/">【Kaggle】Python + Heroku で新規投稿された Kernel を Slack に通知</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Scraping</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../scraping/excite-image-scraping/">Excite image scraping</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../scraping/get-connpass-event-info/">Connpass のイベント情報を取得する in Python</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../scraping/get-youtube-comment/">Youtube のコメントを取得する in Python</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Event</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../event/">Event</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../event/apache-arrow-tokyo-meetup-2018/">Apache Arrow東京ミートアップ2018</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../event/julia-tokyo-8/">JuliaTokyo #8</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../event/pre-event-baseball-data-hackathon/">[【プレイベント】パ・リーグ×パーソル　ベースボールデータハッカソン](https://techplay.jp/event/688365)</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Dena techcon 2019</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/">[DeNA TechCon 2019](https://techcon.dena.com/2019/)</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/dena-and-aws/">【対談：DeNA x AWS】クラウドジャーニーのこれまでとこれから</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/dena-and-gcp/">DeNA と Google Cloud Platform</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/game-cheat-step/">スマホゲームのチート手法とその対策</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/qa-test/">DeNAの品質を支えるQAの取り組み 〜標準化から実践まで〜</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../event/dena-techcon-2019/work-and-kaggle/">パネルディスカッション：データサイエンスの競技者、Kagglerたちが活躍する職場とは</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Note</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../note/">Note</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/command/">Command</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/git/">Git</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/github/">GitHub</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/heroku/">Heroku</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/mkdocs/">MkDocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../note/sphinx/">Sphinx</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Doarakko WorkSpace</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Etc &raquo;</li>
+        
+      
+        
+          <li>Article &raquo;</li>
+        
+      
+    
+    <li>ChatWork に画像をアップロード in Python</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="chatwork-in-python">ChatWork に画像をアップロード in Python</h1>
+<p>ChatWork に<a href="https://blog-ja.chatwork.com/2018/07/20187.html">ファイルをアップロードする API</a> がリリースされていたので使ってみました。</p>
+<h2 id="requirement">Requirement</h2>
+<ul>
+<li>anaconda3-5.2.0(Python 3.6.5)</li>
+</ul>
+<h2 id="program">Program</h2>
+<p>```python:
+import requests</p>
+<p>END_POINT = 'https://api.chatwork.com/v2/'
+API_TOKEN = 'your api token'</p>
+<p>def post_jpeg(room_id, file_path, message=''):
+    url = '{}rooms/{}/files'.format(END_POINT, room_id)
+    jpeg_bin = open(file_path, 'rb')
+    headers = {'X-ChatWorkToken': API_TOKEN}
+    files = {
+        'file': ('kawaii.jpg', jpeg_bin, 'image/jpeg'),
+        'message': message,
+    }
+    request = requests.post(url, headers=headers, files=files)</p>
+<p>room_id = 'your room id'
+file_path = './hoge.jpg'
+message = '正義'
+post_jpeg(room_id, file_path, message)</p>
+<pre><code>![kawaii.jpg](https://qiita-image-store.s3.amazonaws.com/0/245792/dddcf617-4009-56f5-efbc-09ae4a80e153.png)
+
+## Hint
+- message は必須ではないです。
+- 'image/jpeg' の部分は [Content-Type](https://qiita.com/AkihiroTakamura/items/b93fbe511465f52bffaa) での記述になります、他のファイル形式でも試してみてください。
+
+```python:post_jpeg
+files = {'file': ('kawaii.jpg', jpeg_bin, 'image/jpeg')}
+</code></pre>
+
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="http://developer.chatwork.com/ja/endpoint_rooms.html">ChatWork API ドキュメント</a></li>
+</ul>
+<h2 id="hints">Hints</h2>
+<ul>
+<li><a href="https://qiita.com/Doarakko/items/b7f44c227cd712da1051">Qiita</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../face-recognition/facepp-clip-face/" class="btn btn-neutral float-right" title="「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../attention-github-pages-branch-name/" class="btn btn-neutral" title="【GitHub Pages】Web ページを公開する際のブランチ名"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../attention-github-pages-branch-name/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../face-recognition/facepp-clip-face/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
