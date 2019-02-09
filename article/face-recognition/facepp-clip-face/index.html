@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../../css/style.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -313,6 +314,9 @@
     <li>「Face++ Detect API」でローカル画像から一定条件を満たす顔を切り取る in Python</li>
     <li class="wy-breadcrumbs-aside">
       
+        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/article/face-recognition/facepp-clip-face.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
     </li>
   </ul>
   <hr/>
@@ -326,28 +330,42 @@
 顔の角度・検出した顔の数・瞳孔間の距離から, 一定条件を満たす顔のみ切り取りを行うプログラムを作成しました.
 <img alt="image.png" src="https://qiita-image-store.s3.amazonaws.com/0/245792/b8de8352-0e4d-6e99-e606-325a105ac94e.png" /></p>
 <h2 id="_2">注意点</h2>
-<p>・本プログラムの使用範囲内では, API使用料は無料（2018/4/8）です. 詳しい内容については各自<a href="https://console.faceplusplus.com/documents/5679127">Reference</a>を確認してください.
-・<a href="https://www.faceplusplus.com/">Face++</a>のアカウント作成方法の説明はありません.</p>
+<ul>
+<li>本プログラムの使用範囲内では, API使用料は無料（2018/4/8）です. 詳しい内容については各自<a href="https://console.faceplusplus.com/documents/5679127">Reference</a>を確認してください.</li>
+<li><a href="https://www.faceplusplus.com/">Face++</a>のアカウント作成方法の説明はありません.</li>
+</ul>
 <h2 id="1">1. はじめに</h2>
 <p>「<a href="https://www.faceplusplus.com/face-detection/">Face++ Detect API</a>」を使用して, ローカル画像から顔を検出し, 顔の切り取りを行います.<br />
 顔が正面を向いていて, 一定サイズ以上大きい顔画像のみを取得することを目的とにします.<br />
 そのため, 以下の条件を満たす顔画像は顔の切り取りは行いません.</p>
-<p>・検出した顔の数が0または複数<br />
-・顔の横揺れの角度が15°以上または-15°以下<br />
-・顔の縦揺れの角度が10°以上または-10°以下<br />
-・瞳孔間の距離が40ピクセル未満  </p>
+<ul>
+<li>検出した顔の数が0または複数  </li>
+<li>顔の横揺れの角度が15°以上または-15°以下  </li>
+<li>顔の縦揺れの角度が10°以上または-10°以下  </li>
+<li>瞳孔間の距離が40ピクセル未満  </li>
+</ul>
 <p>取得した顔の特徴量を後で使用することを想定するため, レスポンスをJSON形式で保存しました.<br />
 その後, JSONファイルをロードして顔の切り取りを行います.</p>
 <h2 id="2">2. 実行環境</h2>
-<p>・mac os 10.13.3<br />
-・anaconda3-5.1.0<br />
-・pip 9.0.3<br />
-・opencv-python 3.4.0.12<br />
-・Face++ Detect API v3.0  </p>
+<ul>
+<li>mac os 10.13.3  </li>
+<li>anaconda3-5.1.0  </li>
+<li>pip 9.0.3  </li>
+<li>opencv-python 3.4.0.12  </li>
+<li>Face++ Detect API v3.0  </li>
+</ul>
 <h2 id="3">3. 必要なもの</h2>
-<p>・Face++アカウント<br />
-　- アカウント作成の際に電話番号が必要</p>
-<p>・ Face++ API Key</p>
+<ul>
+<li>
+<p>Face++アカウント  </p>
+<ul>
+<li>アカウント作成の際に電話番号が必要</li>
+</ul>
+</li>
+<li>
+<p>Face++ API Key</p>
+</li>
+</ul>
 <h2 id="4">4. ディレクリ構成</h2>
 <pre><code>./
 ├── clip_face.py
@@ -362,8 +380,7 @@
 <h2 id="5">5. プログラム</h2>
 <p>detect_image.py<br />
 'return_attributes' は, ',' の後にスペースを入れるとエラーになるので注意してください</p>
-<p>```python:detect_image.py
-response = requests.post(
+<pre><code>response = requests.post(
     endpoint + '/facepp/v3/detect',
     {
         'api_key': API_KEY,
@@ -373,12 +390,12 @@ response = requests.post(
         'return_landmark': 1,
         'return_attributes': 'headpose,eyestatus,facequality,mouthstatus,eyegaze'
     }
-)</p>
-<pre><code>clip_face.py
-目的に合わせて下部分を変更・追加・削除してください
+)
+</code></pre>
 
-```python:clip_face.py
-#指定した条件を満たす顔画像か判断する関数
+<p>clip_face.py
+目的に合わせて下部分を変更・追加・削除してください</p>
+<pre><code>#指定した条件を満たす顔画像か判断する関数
 def judge_noise_image(resources):
     #検出された顔の数
     face_num = len(resources['faces'])
@@ -442,16 +459,15 @@ $ cd facepp-api-clip-face
 <li>「API KEY」と「API SECRET」を入力
 <img alt="facepp.jpg" src="https://qiita-image-store.s3.amazonaws.com/0/245792/0218f4ba-b158-7f8e-3398-2b1b0d73f52b.jpeg" /></li>
 </ol>
-<p>```python:detect_image.py
-API_KEY = 'aaabbbccc'
-API_SECRET = 'xxxyyyzzz'</p>
-<pre><code>
-4. 顔認識する画像を ./image/original 下に置く  
-数に制限はなく, 名前は自由です
-
+<pre><code>API_KEY = 'aaabbbccc'
+API_SECRET = 'xxxyyyzzz'
 </code></pre>
 
-<p>./image/original/
+<ol>
+<li>顔認識する画像を ./image/original 下に置く<br />
+数に制限はなく, 名前は自由です</li>
+</ol>
+<pre><code>./image/original/
 ├── person0
 │   ├── person0_0.jpg
 │   ├── person0_1.jpg
@@ -469,19 +485,21 @@ API_SECRET = 'xxxyyyzzz'</p>
     ├── person2_1.jpg
     ├── person2_2.jpg
     ├── person2_3.jpg
-    └── person2_4.jpg</p>
-<pre><code>5. 「[Face++ Detect API](https://www.faceplusplus.com/face-detection/)」にリクエストを送り, レスポンスをJSON形式で保存します
-
+    └── person2_4.jpg
 </code></pre>
 
-<p>$ python detect_image.py</p>
-<pre><code>
-6. 保存したJSONファイルをロードして, 取得した数値から顔を切り取ります
-
+<ol>
+<li>「<a href="https://www.faceplusplus.com/face-detection/">Face++ Detect API</a>」にリクエストを送り, レスポンスをJSON形式で保存します</li>
+</ol>
+<pre><code>$ python detect_image.py
 </code></pre>
 
-<p>$ python clip_face.py
-```</p>
+<ol>
+<li>保存したJSONファイルをロードして, 取得した数値から顔を切り取ります</li>
+</ol>
+<pre><code>$ python clip_face.py
+</code></pre>
+
 <h2 id="7">7. おわりに</h2>
 <p>「<a href="https://www.faceplusplus.com/face-detection/">Face++ Detect API</a>」では大量の特徴量を取得でき, 本プログラムではその一部しか使用していません.<br />
 各自<a href="https://console.faceplusplus.com/documents/5679127">Reference</a>を確認して, プログラムをカスタマイズしてください.</p>
@@ -524,6 +542,8 @@ API_SECRET = 'xxxyyyzzz'</p>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Doarakko/mkdocs-github-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../../etc/chatwork-post-image/" style="color: #fcfcfc;">&laquo; Previous</a></span>
