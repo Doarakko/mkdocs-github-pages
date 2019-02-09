@@ -1,1 +1,2 @@
-# github-pages-mkdocs
+# mkdocs-github-pages
+

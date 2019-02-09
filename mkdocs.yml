@@ -1,0 +1,10 @@
+site_name: Doarakko WorkSpace
+use_directory_urls: true 
+theme: 
+    name: readthedocs
+    highlightjs: true
+    include_homepage_in_sidebar: false
+    navigation_depth: 4
+extra_css:
+    - "css/style.css"
+repo_url: https://github.com/Doarakko/mkdocs-github-pages
