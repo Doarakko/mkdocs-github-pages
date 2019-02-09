@@ -20,11 +20,11 @@
 - Redmine
 
 ## Products
-- [Kaggle Competitions Calendar](/products/kaggle-competitions-calendar.html)
+- [Kaggle Competitions Calendar](./products/kaggle-competitions-calendar.html)
 - [Kaggle Kernel Notification](https://github.com/Doarakko/kaggle-kernel-notification)
 
-## [Article](/article/)
+## [Article](./article/)
 
-## [Note](/note/)
+## [Note](./note/)
 
-## [Event](/event/)
+## [Event](./event/)

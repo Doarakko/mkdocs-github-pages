@@ -6,7 +6,7 @@ GitHub Pages でユーザページを作成していた際に、戸惑ったの�
 - 公開するコンテンツと編集中のコンテンツを別ブランチで管理
     - Example: OSS のドキュメント等の閲覧者が多い、バージョン管理をするもの
 
-![](/img/github-pages-setting.png)
+![](../../img/github-pages-setting.png)
 
 ## 設定できるブランチ名
 ### ユーザ（or 組織）ページ

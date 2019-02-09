@@ -1,7 +1,7 @@
 # Note
-- [Git](/note/git)
-- [GitHub](/note/github)
-- [Heroku](/note/heroku)
-- [MkDocs](/note/mkdocs)
-- [Sphinx](/note/sphinx)
-- [etc](/note/command)
+- [Git](./git)
+- [GitHub](./github)
+- [Heroku](./heroku)
+- [MkDocs](./mkdocs)
+- [Sphinx](./sphinx)
+- [etc](./command)
