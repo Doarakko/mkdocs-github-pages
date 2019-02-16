@@ -21,5 +21,6 @@
 - [Youtube のコメントを取得する in Python](./scraping/get-youtube-comment)
 
 ## etc
+- [AtCoder のコンテスト開催を最速で知る方法](./etc/atcode-contest)
 - [ChatWork に画像をアップロード in Python](./etc/chatwork-post-image)
 - [【GitHub Pages】Web ページを公開する際のブランチ名](./etc/attention-github-pages-branch-name)
