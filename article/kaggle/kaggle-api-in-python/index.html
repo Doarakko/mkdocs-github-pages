@@ -355,12 +355,12 @@
 <h2 id="_4">準備</h2>
 <h3 id="1-kaggle">1. kaggle ライブラリをインポート</h3>
 <p><code>kaggle</code>コマンドは Python で作られているので、Github を見ながらうまいことインポートします。</p>
-<pre><code class="python">from kaggle.api.kaggle_api_extended import KaggleApi
+<pre><code>from kaggle.api.kaggle_api_extended import KaggleApi
 </code></pre>
 
 <h3 id="2-kaggleapi">2. KaggleApi クラスのインスタンスを準備</h3>
 <p><code>KaggleApi</code> クラスにいろいろな処理が書かれているので、こちらのインスタンスを準備して、<code>api</code>経由でいろいろな関数を実行して行きます。</p>
-<pre><code class="python"># KaggleApi のインスタンスを用意
+<pre><code># KaggleApi のインスタンスを用意
 api = KaggleApi()
 </code></pre>
 
@@ -368,13 +368,13 @@ api = KaggleApi()
 <p>このままだと認証通っていないので、エラーになります。</p>
 <p>そこで<code>api.authenticate()</code>を実行します。<br />
 ローカルにある <code>~/.kaggle/kaggle.json</code>を読み込みに行って、なんやかんやしてくれます。</p>
-<pre><code class="python"># 認証を通す
+<pre><code># 認証を通す
 api.authenticate()
 </code></pre>
 
 <h2 id="_5">試してみる</h2>
 <p>コンペのリストを表示させてみます。</p>
-<pre><code class="python"># $ kaggle competitions list
+<pre><code># $ kaggle competitions list
 api.competitions_list_cli()
 </code></pre>
 
@@ -406,7 +406,7 @@ new-york-city-taxi-fare-prediction             2018-09-25 23:59:00  Playground  
 <p>これを使っても何の意味もないので、<code>kaggle</code>コマンドで直接実行できないものをいくつか使ってみました。</p>
 <h3 id="_6">各コンペの情報を取得</h3>
 <p><code>competitions_list</code>はコンペの情報を取ってこれます。</p>
-<pre><code class="python">competitions_list = api.competitions_list(category='featured')
+<pre><code>competitions_list = api.competitions_list(category='featured')
 for competition in competitions_list:
     print(competition)
 </code></pre>
@@ -434,7 +434,7 @@ avito-demand-prediction
 </code></pre>
 
 <p>どんな情報が入っているか見てみます。</p>
-<pre><code class="python">for key in dir(competitions_list[0]):
+<pre><code>for key in dir(competitions_list[0]):
     print('{}: {}'.format(key, getattr(competitions_list[0], key)))
 </code></pre>
 
@@ -467,7 +467,7 @@ userRank: None
 
 <p><code>$ kaggle competitions list</code> では取ってこれない情報がけっこうあるのがわかります。</p>
 <h3 id="kernel">Kernel の情報を取得</h3>
-<pre><code class="python">kernels_list = api.kernels_list(competition='elo-merchant-category-recommendation')
+<pre><code>kernels_list = api.kernels_list(competition='elo-merchant-category-recommendation')
 for key in dir(kernels_list[0]):
     print('{}: {}'.format(key, getattr(kernels_list[0], key)))
 </code></pre>

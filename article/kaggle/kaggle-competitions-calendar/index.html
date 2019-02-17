@@ -361,7 +361,7 @@
 <h3 id="1-kaggle-api">1. Kaggle API でコンペの情報取得</h3>
 <p><a href="https://doarakko.hatenablog.com/entry/kaggle_api_in_python">こちら</a>
 の記事を参考に Kaggle API を Python で実行します。</p>
-<pre><code class="python">from kaggle.api.kaggle_api_extended import KaggleApi
+<pre><code>from kaggle.api.kaggle_api_extended import KaggleApi
 
 def get_competitions_list(category='featured'):
     api = KaggleApi()
@@ -370,7 +370,7 @@ def get_competitions_list(category='featured'):
 </code></pre>
 
 <h3 id="2">2. カレンダーに登録されているイベント名を取得</h3>
-<pre><code class="python">def get_event_name_list():
+<pre><code>def get_event_name_list():
     now = datetime.datetime.utcnow().isoformat() + 'Z'
     events_result = service.events().list(
         calendarId=CALENDAR_ID, timeMin=now).execute()
@@ -384,7 +384,7 @@ def get_competitions_list(category='featured'):
 </code></pre>
 
 <h3 id="3">3. 新規コンペをカレンダーに登録</h3>
-<pre><code class="python">def create_events(competitions_list):
+<pre><code>def create_events(competitions_list):
     event_name_list = get_event_name_list()
     if event_name_list is None:
         return 0
@@ -431,7 +431,7 @@ def get_competitions_list(category='featured'):
 </code></pre>
 
 <p><code>key_list</code>に設定したものを、イベントの説明欄に入れます。</p>
-<pre><code class="python">key_list = ['description', 'evaluationMetric', 'isKernelsSubmissionsOnly', 'tags', 'url']
+<pre><code>key_list = ['description', 'evaluationMetric', 'isKernelsSubmissionsOnly', 'tags', 'url']
 description = ''
 for key in dir(competition_info):
     if key in key_list:
@@ -441,7 +441,7 @@ for key in dir(competition_info):
 <p>以下がイベントの登録処理です。  <br />
 タイムゾーンが<code>America/Los_Angeles</code>になっていますが、こちらは<code>dateTime</code>がどのタイムゾーンかを入れます。最初戸惑いました。</p>
 <p>あとは、個人のカレンダーの設定に合わせて Google 側でうまくやってくれます。</p>
-<pre><code class="python">body = {
+<pre><code>body = {
     'summary': competition_name,
     'description': description,
     'start': {

@@ -354,7 +354,7 @@
 <p>どちらでも OK です。</p>
 <h2 id="2_1">課題2：環境変数をどう使うか</h2>
 <p>以下 <a href="https://developers.google.com/calendar/quickstart/python">Google Calendar API のサンプルプログラム</a>の抜粋。</p>
-<pre><code class="python">store = file.Storage('token.json')
+<pre><code>store = file.Storage('token.json')
 creds = store.get()
 # 省略
 service = build('calendar', 'v3', http=creds.authorize(Http()))
@@ -365,23 +365,23 @@ service = build('calendar', 'v3', http=creds.authorize(Http()))
 環境変数に対して同じ「<strong>なにか</strong>」をしてあげる必要があります。</p>
 <h3 id="_4">解決策: <a href="https://github.com/googleapis/oauth2client">ソース</a> を見る</h3>
 <p>以下 <a href="https://github.com/googleapis/oauth2client/blob/master/oauth2client/file.py">oauth2client のソースコード</a>抜粋。</p>
-<p>```python: oauth2client/oauth2client/file.py
-try:
+<pre><code>try:
     f = open(self._filename, 'rb')
     content = f.read()
     f.close()
 except IOError:
-    return credentials</p>
-<p>try:
+    return credentials
+
+try:
     credentials = client.Credentials.new_from_json(content)
     credentials.set_store(self)
 except ValueError:
-    pass</p>
-<pre><code>JSON ファイルを開いた後に、`client.Credentials.new_from_json` で処理しています。
-そこで、環境変数 `GOOGLE_APPLICATION_CREDENTIALS` に対しても同じことをしてあげれば OK です。
+    pass
+</code></pre>
 
-```python
-
+<p>JSON ファイルを開いた後に、<code>client.Credentials.new_from_json</code> で処理しています。
+そこで、環境変数 <code>GOOGLE_APPLICATION_CREDENTIALS</code> に対しても同じことをしてあげれば OK です。</p>
+<pre><code>
 from httplib2 import Http
 from oauth2client import client
 from googleapiclient.discovery import build
