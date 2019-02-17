@@ -56,7 +56,7 @@ $ cd excite-image-scraping
 
 3. ダウンロードする画像の枚数を入力
 
-```python
+```
 N = 60
 ```
 

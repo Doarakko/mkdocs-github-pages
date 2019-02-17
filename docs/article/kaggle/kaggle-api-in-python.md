@@ -17,12 +17,12 @@ Kaggle API を Python 上で実行します（<u><b>`kaggle` コマンドを実�
 ## 準備
 ### 1. kaggle ライブラリをインポート
 `kaggle`コマンドは Python で作られているので、Github を見ながらうまいことインポートします。
-```python
+```
 from kaggle.api.kaggle_api_extended import KaggleApi
 ```
 ### 2. KaggleApi クラスのインスタンスを準備
 `KaggleApi` クラスにいろいろな処理が書かれているので、こちらのインスタンスを準備して、`api`経由でいろいろな関数を実行して行きます。
-```python
+```
 # KaggleApi のインスタンスを用意
 api = KaggleApi()
 ```
@@ -32,14 +32,14 @@ api = KaggleApi()
 そこで`api.authenticate()`を実行します。  
 ローカルにある `~/.kaggle/kaggle.json`を読み込みに行って、なんやかんやしてくれます。
 
-```python
+```
 # 認証を通す
 api.authenticate()
 ```
 
 ## 試してみる
 コンペのリストを表示させてみます。
-```python
+```
 # $ kaggle competitions list
 api.competitions_list_cli()
 ```
@@ -74,7 +74,7 @@ new-york-city-taxi-fare-prediction             2018-09-25 23:59:00  Playground  
 
 ### 各コンペの情報を取得
 `competitions_list`はコンペの情報を取ってこれます。
-```python
+```
 competitions_list = api.competitions_list(category='featured')
 for competition in competitions_list:
     print(competition)
@@ -102,7 +102,7 @@ youtube8m-2018
 avito-demand-prediction
 ```
 どんな情報が入っているか見てみます。
-```python
+```
 for key in dir(competitions_list[0]):
     print('{}: {}'.format(key, getattr(competitions_list[0], key)))
 ```
@@ -137,7 +137,7 @@ userRank: None
 `$ kaggle competitions list` では取ってこれない情報がけっこうあるのがわかります。
 
 ### Kernel の情報を取得
-```python
+```
 kernels_list = api.kernels_list(competition='elo-merchant-category-recommendation')
 for key in dir(kernels_list[0]):
     print('{}: {}'.format(key, getattr(kernels_list[0], key)))

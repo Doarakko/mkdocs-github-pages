@@ -34,7 +34,7 @@ Kaggle のカレンダーは、過去に[こちら](https://www.kaggle.com/gener
 
 
 
-```python
+```
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 def get_competitions_list(category='featured'):
@@ -44,7 +44,7 @@ def get_competitions_list(category='featured'):
 ```
 
 ### 2. カレンダーに登録されているイベント名を取得
-```python
+```
 def get_event_name_list():
     now = datetime.datetime.utcnow().isoformat() + 'Z'
     events_result = service.events().list(
@@ -59,7 +59,7 @@ def get_event_name_list():
 ```
 
 ### 3. 新規コンペをカレンダーに登録
-```python
+```
 def create_events(competitions_list):
     event_name_list = get_event_name_list()
     if event_name_list is None:
@@ -107,7 +107,7 @@ def create_events(competitions_list):
 ```
 
 `key_list`に設定したものを、イベントの説明欄に入れます。
-```python
+```
 key_list = ['description', 'evaluationMetric', 'isKernelsSubmissionsOnly', 'tags', 'url']
 description = ''
 for key in dir(competition_info):
@@ -120,7 +120,7 @@ for key in dir(competition_info):
 
 あとは、個人のカレンダーの設定に合わせて Google 側でうまくやってくれます。
 
-```python
+```
 body = {
     'summary': competition_name,
     'description': description,

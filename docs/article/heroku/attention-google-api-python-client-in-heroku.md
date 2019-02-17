@@ -35,7 +35,7 @@ JSON ファイルの中身をコピペします。
 
 以下 [Google Calendar API のサンプルプログラム](https://developers.google.com/calendar/quickstart/python)の抜粋。
 
-```python
+```
 store = file.Storage('token.json')
 creds = store.get()
 # 省略
@@ -49,7 +49,7 @@ service = build('calendar', 'v3', http=creds.authorize(Http()))
 ### 解決策: [ソース](https://github.com/googleapis/oauth2client) を見る
 以下 [oauth2client のソースコード](https://github.com/googleapis/oauth2client/blob/master/oauth2client/file.py)抜粋。
 
-```python: oauth2client/oauth2client/file.py
+```
 try:
     f = open(self._filename, 'rb')
     content = f.read()
@@ -66,7 +66,7 @@ except ValueError:
 JSON ファイルを開いた後に、`client.Credentials.new_from_json` で処理しています。
 そこで、環境変数 `GOOGLE_APPLICATION_CREDENTIALS` に対しても同じことをしてあげれば OK です。
 
-```python
+```
 
 from httplib2 import Http
 from oauth2client import client

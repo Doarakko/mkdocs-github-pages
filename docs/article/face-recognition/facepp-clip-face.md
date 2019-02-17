@@ -180,4 +180,3 @@ $ python clip_face.py
 
 ## Hints
 - [Code](https://github.com/Doarakko/face-recognition/tree/master/facepp-api-clip-face)
-- [Qiita](https://qiita.com/Doarakko/items/bf33d9eb102871224ce1)

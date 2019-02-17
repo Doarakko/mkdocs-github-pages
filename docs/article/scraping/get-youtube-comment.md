@@ -61,7 +61,7 @@ $ python youtube.py
 
 ## Hints
 ### videoId
-```python
+```
 video_id = 'd1tnWnzWzm4'
 ```
 `video_id` は動画 URL のこのパラメータのことです.
@@ -69,7 +69,7 @@ video_id = 'd1tnWnzWzm4'
 ![](https://qiita-image-store.s3.amazonaws.com/0/245792/50ff8a6b-1323-b068-4f3d-926b25d56e5a.png)
 
 ### order
-```python
+```
 'order': 'relevance',
 ```
 デフォルト（`time `）では、直近のコメントを取ってきます。
@@ -77,7 +77,7 @@ video_id = 'd1tnWnzWzm4'
 
 ### textFormat
 
-```python
+```
 'textFormat': 'plaintext',
 ```
 コメントのフォーマットを html か plain text か選択できます。

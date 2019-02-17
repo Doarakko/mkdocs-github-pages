@@ -5,7 +5,7 @@ ChatWork に[ファイルをアップロードする API](https://blog-ja.chatwo
 - anaconda3-5.2.0(Python 3.6.5)
 
 ## Program
-```python:
+```
 import requests
 
 END_POINT = 'https://api.chatwork.com/v2/'
@@ -34,12 +34,9 @@ post_jpeg(room_id, file_path, message)
 - message は必須ではないです。
 - 'image/jpeg' の部分は [Content-Type](https://qiita.com/AkihiroTakamura/items/b93fbe511465f52bffaa) での記述になります、他のファイル形式でも試してみてください。
 
-```python:post_jpeg
+```:post_jpeg
 files = {'file': ('kawaii.jpg', jpeg_bin, 'image/jpeg')}
 ```
 
 ## Reference
 - [ChatWork API ドキュメント](http://developer.chatwork.com/ja/endpoint_rooms.html)
-
-## Hints
-- [Qiita](https://qiita.com/Doarakko/items/b7f44c227cd712da1051)
