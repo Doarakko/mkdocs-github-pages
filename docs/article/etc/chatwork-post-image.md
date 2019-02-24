@@ -34,7 +34,7 @@ post_jpeg(room_id, file_path, message)
 - message は必須ではないです。
 - 'image/jpeg' の部分は [Content-Type](https://qiita.com/AkihiroTakamura/items/b93fbe511465f52bffaa) での記述になります、他のファイル形式でも試してみてください。
 
-```:post_jpeg
+```
 files = {'file': ('kawaii.jpg', jpeg_bin, 'image/jpeg')}
 ```
 
