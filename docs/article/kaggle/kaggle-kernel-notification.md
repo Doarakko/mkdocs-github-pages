@@ -70,7 +70,7 @@ reducing-commercial-aviation-fatalities        2019-02-12 23:59:00  Playground  
 通知したいコンペ名（`ref`カラムの値）を、以下のリストに入れます。
 何個でも OK です。
 
-```:main.py
+```
 COMPETITIONS_LIST = ['elo-merchant-category-recommendation', 'vsb-power-line-fault-detection']
 ```
 
