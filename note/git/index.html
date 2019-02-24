@@ -241,6 +241,12 @@
     
         <ul>
         
+            <li><a class="toctree-l4" href="#_1">ブランチ</a></li>
+        
+            <li><a class="toctree-l4" href="#etc">etc</a></li>
+        
+            <li><a class="toctree-l4" href="#diff">diff</a></li>
+        
             <li><a class="toctree-l4" href="#reference">Reference</a></li>
         
         </ul>
@@ -307,6 +313,7 @@
             <div class="section">
               
                 <h1 id="git">Git</h1>
+<h3 id="_1">ブランチ</h3>
 <ul>
 <li>ブランチ一覧表示</li>
 </ul>
@@ -337,6 +344,7 @@
 <pre><code>$ git branch --delete &lt;branch name&gt;
 </code></pre>
 
+<h3 id="etc">etc</h3>
 <ul>
 <li>キャッシュ削除<ul>
 <li><code>.gitignore</code> が適用されない場合に実行</li>
@@ -361,10 +369,26 @@
 <pre><code>$ git reset --hard HEAD^
 </code></pre>
 
+<h3 id="diff">diff</h3>
+<ul>
+<li>add 前</li>
+</ul>
+<pre><code>$ git diff
+$ git diff &lt;file path&gt;
+</code></pre>
+
+<ul>
+<li>add 後</li>
+</ul>
+<pre><code>$ git diff --cached
+$ git diff --cached &lt;file path&gt;
+</code></pre>
+
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://qiita.com/fuwamaki/items/3ed021163e50beab7154">.gitignoreに記載したのに反映されない件</a></li>
 <li><a href="https://qiita.com/shuntaro_tamura/items/06281261d893acf049ed">[Git]コミットの取り消し、打ち消し、上書き</a></li>
+<li><a href="https://qiita.com/shibukk/items/8c9362a5bd399b9c56be">忘れやすい人のための git diff チートシート</a></li>
 </ul>
               
             </div>

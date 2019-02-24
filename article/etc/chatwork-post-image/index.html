@@ -352,8 +352,9 @@ post_jpeg(room_id, file_path, message)
 <li>message は必須ではないです。</li>
 <li>'image/jpeg' の部分は <a href="https://qiita.com/AkihiroTakamura/items/b93fbe511465f52bffaa">Content-Type</a> での記述になります、他のファイル形式でも試してみてください。</li>
 </ul>
-<p><code>:post_jpeg
-files = {'file': ('kawaii.jpg', jpeg_bin, 'image/jpeg')}</code></p>
+<pre><code>files = {'file': ('kawaii.jpg', jpeg_bin, 'image/jpeg')}
+</code></pre>
+
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="http://developer.chatwork.com/ja/endpoint_rooms.html">ChatWork API ドキュメント</a></li>
