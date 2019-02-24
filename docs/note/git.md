@@ -1,4 +1,5 @@
 # Git
+### ブランチ
 - ブランチ一覧表示
 ```
 $ git branch
@@ -23,23 +24,35 @@ $ git branch -m <src name> <dst name>
 $ git branch --delete <branch name>
 ```
 
+### etc
 - キャッシュ削除
     - `.gitignore` が適用されない場合に実行
 ```
 $ git rm -r --cached .
 ```
-
 - ログの確認
     - 終了する場合は `q` を押す
 ```
 $ git log
 ```
-
 - 直前のコミットの取り消し
 ```
 $ git reset --hard HEAD^
 ```
 
+### diff
+- add 前
+```
+$ git diff
+$ git diff <file path>
+```
+- add 後
+```
+$ git diff --cached
+$ git diff --cached <file path>
+```
+
 ## Reference
 - [.gitignoreに記載したのに反映されない件](https://qiita.com/fuwamaki/items/3ed021163e50beab7154)
 - [[Git]コミットの取り消し、打ち消し、上書き](https://qiita.com/shuntaro_tamura/items/06281261d893acf049ed)
+- [忘れやすい人のための git diff チートシート](https://qiita.com/shibukk/items/8c9362a5bd399b9c56be)
