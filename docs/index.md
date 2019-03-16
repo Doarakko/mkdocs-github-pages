@@ -5,7 +5,7 @@
 - [Hatena Blog](https://doarakko.hatenablog.com)
 
 ## Products
-- [Kaggle Competitions Calendar](./products/kaggle-competitions-calendar.html)
+- [Kaggle Competitions Calendar](https://kaggle-competitions-calendar.herokuapp.com/)
 - [Kaggle Kernel Notification](https://github.com/Doarakko/kaggle-kernel-notification)
 
 ## [Article](./article/)
