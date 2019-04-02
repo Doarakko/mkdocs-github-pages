@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Git - Doarakko WorkSpace</title>
+  <title>Competitive Programming - Doarakko WorkSpace</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Git";
-    var mkdocs_page_input_path = "note/git.md";
+    var mkdocs_page_name = "Competitive Programming";
+    var mkdocs_page_input_path = "note/competitive-programming.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -236,31 +236,19 @@
                     
     <a class="" href="../command/">Command</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../competitive-programming/">Competitive Programming</a>
-                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Git</a>
+    <a class="current" href="./">Competitive Programming</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#git">Git</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#_1">ブランチ</a></li>
-        
-            <li><a class="toctree-l4" href="#etc">etc</a></li>
-        
-            <li><a class="toctree-l4" href="#diff">diff</a></li>
-        
-            <li><a class="toctree-l4" href="#reference">Reference</a></li>
-        
-        </ul>
+    <li class="toctree-l3"><a href="#competitive-programming">Competitive Programming</a></li>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../git/">Git</a>
                 </li>
                 <li class="">
                     
@@ -307,10 +295,10 @@
         
       
     
-    <li>Git</li>
+    <li>Competitive Programming</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/note/git.md"
+        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/note/competitive-programming.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -320,84 +308,16 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="git">Git</h1>
-<h3 id="_1">ブランチ</h3>
+                <h1 id="competitive-programming">Competitive Programming</h1>
 <ul>
-<li>ブランチ一覧表示</li>
+<li>切り上げ</li>
 </ul>
-<pre><code>$ git branch
-</code></pre>
+<pre><code>double x = 3.2;
+cout &lt;&lt; ceil(x) &lt;&lt; endl;
 
-<ul>
-<li>新規ブランチ作成</li>
-</ul>
-<pre><code>$ git branch -b &lt;branch name&gt;
+[Output]
+4
 </code></pre>
-
-<ul>
-<li>ブランチ切替</li>
-</ul>
-<pre><code>$ git checkout &lt;branch name&gt;
-</code></pre>
-
-<ul>
-<li>ブランチ名変更</li>
-</ul>
-<pre><code>$ git branch -m &lt;src name&gt; &lt;dst name&gt;
-</code></pre>
-
-<ul>
-<li>ブランチ削除</li>
-</ul>
-<pre><code>$ git branch --delete &lt;branch name&gt;
-</code></pre>
-
-<h3 id="etc">etc</h3>
-<ul>
-<li>キャッシュ削除<ul>
-<li><code>.gitignore</code> が適用されない場合に実行</li>
-</ul>
-</li>
-</ul>
-<pre><code>$ git rm -r --cached .
-</code></pre>
-
-<ul>
-<li>ログの確認<ul>
-<li>終了する場合は <code>q</code> を押す</li>
-</ul>
-</li>
-</ul>
-<pre><code>$ git log
-</code></pre>
-
-<ul>
-<li>直前のコミットの取り消し</li>
-</ul>
-<pre><code>$ git reset --hard HEAD^
-</code></pre>
-
-<h3 id="diff">diff</h3>
-<ul>
-<li>add 前</li>
-</ul>
-<pre><code>$ git diff
-$ git diff &lt;file path&gt;
-</code></pre>
-
-<ul>
-<li>add 後</li>
-</ul>
-<pre><code>$ git diff --cached
-$ git diff --cached &lt;file path&gt;
-</code></pre>
-
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a href="https://qiita.com/fuwamaki/items/3ed021163e50beab7154">.gitignoreに記載したのに反映されない件</a></li>
-<li><a href="https://qiita.com/shuntaro_tamura/items/06281261d893acf049ed">[Git]コミットの取り消し、打ち消し、上書き</a></li>
-<li><a href="https://qiita.com/shibukk/items/8c9362a5bd399b9c56be">忘れやすい人のための git diff チートシート</a></li>
-</ul>
               
             </div>
           </div>
@@ -405,10 +325,10 @@ $ git diff --cached &lt;file path&gt;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../github/" class="btn btn-neutral float-right" title="GitHub">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../competitive-programming/" class="btn btn-neutral" title="Competitive Programming"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../command/" class="btn btn-neutral" title="Command"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -436,10 +356,10 @@ $ git diff --cached &lt;file path&gt;
           <a href="https://github.com/Doarakko/mkdocs-github-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../competitive-programming/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../command/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../github/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../git/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
