@@ -7,6 +7,7 @@
 ## Products
 - [Kaggle Competitions Calendar](https://kaggle-competitions-calendar.herokuapp.com/)
 - [Kaggle Kernel Notification](https://github.com/Doarakko/kaggle-kernel-notification)
+- [Kaggle Submit Notification](https://github.com/Doarakko/kaggle-submit-notification)
 
 ## [Article](./article/)
 
