@@ -16,7 +16,7 @@ $ git checkout <branch name>
 
 - ブランチ名変更
 ```
-$ git checkout -m <src name> <dst name>
+$ git branch -m <src name> <dst name>
 ```
 
 - ブランチ削除
