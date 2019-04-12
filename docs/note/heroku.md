@@ -2,7 +2,13 @@
 ## Requirements
 - heroku/7.19.4
 
-## Command
+
+- アプリケーション作成
+    - アプリケーション名を指定しない場合はランダム
+```
+$ heroku create <app name>
+```
+
 - ログイン
 ```
 $ heroku login
@@ -19,4 +25,30 @@ $ git push heroku master
 $ heroku addons:create scheduler:standard
 ```
 
-- Postgres
+- 環境変数確認
+```
+$ heroku config
+```
+
+- アプリケーション名変更
+```
+$ heroku apps:rename <newname> --app <oldname>
+$ git remote rm heroku
+$ heroku git:remote -a <newname>
+```
+
+
+- アドオン確認
+```
+$ heroku addons
+```
+
+## Postgres
+- 詳細情報確認
+```
+$ heroku pg -a <app name>
+```
+
+## Reference
+- [Renaming Apps from the CLI](https://devcenter.heroku.com/articles/renaming-apps)
+- [Heroku コマンド・設定 メモメモ](https://qiita.com/pugiemonn/items/0e69b7a29a384b356e65)
