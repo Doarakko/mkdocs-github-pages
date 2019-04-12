@@ -1,9 +1,8 @@
-# JuliaTokyo #8
-## 2018/10/20
+# [JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)  
 
 ## DataFrames and Types with Julia
 ### @ki_chi
-### Juliaになんのパッケージを使えば抜け人を殲滅できるか
+### Juliaになんのパッケージを使えば抜け人を殲滅できるか
 - DataFrames  
 - DataFramesMeta  
 - JuliaDB
@@ -28,7 +27,7 @@
     - vegaLite / DataVoyager  
 
 - Julia の速度  
-    - コンパイルしてからやるので体感遅い. 一度コードが組めれば計算速速い  
+    - コンパイルしてからやるので体感遅い. 一度コードが組めれば計算速速い  
 
 - Julia のメモリ管理による優位性  
     - Python も R も C++でやっているので、その点の優位性はないのでは
@@ -77,16 +76,18 @@
         - ひとつに統合するために開発  
     - apatch の正式プロジェクト  
 
-### research
+### Research
 - PyCall
-- FFI 
-- apache arrow  
+- FFI
 
 
 ## 覇権を取るパッケージ作成
 ### @bicycle1885
 - direnv  
     - プロジェクトごとに環境変数を設定可能  
+- revise.jl  
+    - julia を再起動せず、パッケージのコードを更新可能  
+    - パッケージ開発に便利  
 
 ### 覇権をとるには
 - アピールする  
@@ -101,11 +102,8 @@
 - direnv  
 - discourse  
     - julia のコミュニティ  
-- revise.jl  
-    - julia を再起動せず、パッケージのコードを更新可能  
-    - パッケージ開発に便利  
 
-## ライトニングトークセッション
+## ライトニングトークセッション
 ### JuliaのDocumentationについて
 - Julia の Documentation  
     - markdown  
@@ -115,6 +113,3 @@
 ### Juliaと画像処理
 #### @Dsuke_KATO
 - juliaimage
-
-## Reference
-・[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)  
