@@ -1,4 +1,4 @@
-# Apache Arrow東京ミートアップ2018
+# [Apache Arrow東京ミートアップ2018](https://speee.connpass.com/event/103514/)
 ## Apache SparkとApache Arrow
 ### Reasearch
 - PySpark
@@ -19,7 +19,7 @@
 - dplyr
 - ALTREP
 
-## PythonとApache Arrow
+## Python と Apache Arrow
 ### Learn
 - Dask
     - pandas の処理を並列, 分散実行
@@ -32,8 +32,6 @@
 - scikit-learn
     - numpy のみ対応
     - pandas を渡した場合は, 裏で numpy に変換
-### Research
-- dask
 
 ## TensorとApache Arrow
 ###
@@ -45,5 +43,4 @@
 - xnd
 
 ## Reference
-- [Apache Arrow東京ミートアップ2018](https://speee.connpass.com/event/103514/)
 - [Apache Arrowの最新情報（2018年9月版）](https://www.clear-code.com/blog/2018/9/5.html)
