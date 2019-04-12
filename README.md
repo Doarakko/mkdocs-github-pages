@@ -1,4 +1,4 @@
-# [mkdocs-github-pages](https://doarakko.github.io/mkdocs-github-pages/)
+# [Mkdocs Github Pages](https://doarakko.github.io/mkdocs-github-pages/)
 ## Requirements
 - Python 3
 - pip
