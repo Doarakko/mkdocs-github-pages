@@ -48,7 +48,12 @@ $ heroku addons
 ```
 $ heroku pg -a <app name>
 ```
+- SQL ファイルを流す
+```
+$ heroku pg:psql --app <app name> < <file path>
+```
 
 ## Reference
 - [Renaming Apps from the CLI](https://devcenter.heroku.com/articles/renaming-apps)
 - [Heroku コマンド・設定 メモメモ](https://qiita.com/pugiemonn/items/0e69b7a29a384b356e65)
+- [how to execute a .sql script on heroku?](https://stackoverflow.com/questions/15237366/how-to-execute-a-sql-script-on-heroku)
