@@ -23,3 +23,23 @@ WHERE
 ORDER BY
     rating DESC;
 ```
+
+- group by 結果に対しての条件は having を使用
+```
+SELECT
+    class
+FROM
+    courses
+GROUP BY
+    class
+HAVING
+    count(DISTINCT student) >= 5;
+```
+
+- `DATE` 型の演算の注意点
+```
+select to_date('2015-01-31', 'YYYYMMDD')+1 date;
+    date    
+------------
+ 2015-01-02
+```
