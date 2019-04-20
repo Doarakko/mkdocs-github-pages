@@ -7,6 +7,16 @@
     - `Sync.once` を使用
         - 複数の goroutine が呼び出しても実行されるのは1度だけ
 
+- `.env` のパス指定
+```
+import "github.com/joho/godotenv"
+
+err := godotenv.Load(".env")
+if err != nil {
+	log.Fatal("Error loading .env file")
+}
+```
+
 ## Research
 - シグネチャ
 - `chan`
