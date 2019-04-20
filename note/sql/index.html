@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Heroku - Doarakko WorkSpace</title>
+  <title>SQL - Doarakko WorkSpace</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Heroku";
-    var mkdocs_page_input_path = "note/heroku.md";
+    var mkdocs_page_name = "SQL";
+    var mkdocs_page_input_path = "note/sql.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -135,25 +135,9 @@
                     
     <a class="" href="../golang/">Golang</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Heroku</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#heroku">Heroku</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
-        
-            <li><a class="toctree-l4" href="#postgres">Postgres</a></li>
-        
-            <li><a class="toctree-l4" href="#reference">Reference</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../heroku/">Heroku</a>
                 </li>
                 <li class="">
                     
@@ -175,9 +159,15 @@
                     
     <a class="" href="../sphinx/">Sphinx</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../sql/">SQL</a>
+    <a class="current" href="./">SQL</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#sql">SQL</a></li>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -212,10 +202,10 @@
         
       
     
-    <li>Heroku</li>
+    <li>SQL</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/note/heroku.md"
+        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/note/sql.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -225,82 +215,57 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="heroku">Heroku</h1>
-<h2 id="requirements">Requirements</h2>
+                <h1 id="sql">SQL</h1>
 <ul>
-<li>
-<p>heroku/7.19.4</p>
-</li>
-<li>
-<p>アプリケーション作成</p>
-<ul>
-<li>アプリケーション名を指定しない場合はランダム</li>
+<li>case</li>
 </ul>
-</li>
-</ul>
-<pre><code>$ heroku create &lt;app name&gt;
+<pre><code>update salary 
+set 
+    sex = case sex
+        when 'm' then 'f'
+        else 'm'
+    end;
 </code></pre>
 
 <ul>
-<li>ログイン</li>
-</ul>
-<pre><code>$ heroku login
-</code></pre>
-
-<ul>
-<li>Push</li>
-</ul>
-<pre><code>$ git push heroku master
-</code></pre>
-
-<ul>
-<li>スケジューラ追加<ul>
-<li>設定はダッシュボード上で行う</li>
+<li>剰余<ul>
+<li><code>mod</code> の方が <code>%</code> よりはやい</li>
+<li>例: <a href="https://leetcode.com/problems/not-boring-movies">LeetCode</a></li>
 </ul>
 </li>
 </ul>
-<pre><code>$ heroku addons:create scheduler:standard
+<pre><code>SELECT
+    *
+FROM
+    cinema
+WHERE
+    id % 2 = 1
+    AND description != 'boring'
+ORDER BY
+    rating DESC;
 </code></pre>
 
 <ul>
-<li>環境変数確認</li>
+<li>group by 結果に対しての条件は having を使用</li>
 </ul>
-<pre><code>$ heroku config
+<pre><code>SELECT
+    class
+FROM
+    courses
+GROUP BY
+    class
+HAVING
+    count(DISTINCT student) &gt;= 5;
 </code></pre>
 
 <ul>
-<li>アプリケーション名変更</li>
+<li><code>DATE</code> 型の演算の注意点</li>
 </ul>
-<pre><code>$ heroku apps:rename &lt;newname&gt; --app &lt;oldname&gt;
-$ git remote rm heroku
-$ heroku git:remote -a &lt;newname&gt;
+<pre><code>select to_date('2015-01-31', 'YYYYMMDD')+1 date;
+    date    
+------------
+ 2015-01-02
 </code></pre>
-
-<ul>
-<li>アドオン確認</li>
-</ul>
-<pre><code>$ heroku addons
-</code></pre>
-
-<h2 id="postgres">Postgres</h2>
-<ul>
-<li>詳細情報確認</li>
-</ul>
-<pre><code>$ heroku pg -a &lt;app name&gt;
-</code></pre>
-
-<ul>
-<li>SQL ファイルを流す</li>
-</ul>
-<pre><code>$ heroku pg:psql --app &lt;app name&gt; &lt; &lt;file path&gt;
-</code></pre>
-
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a href="https://devcenter.heroku.com/articles/renaming-apps">Renaming Apps from the CLI</a></li>
-<li><a href="https://qiita.com/pugiemonn/items/0e69b7a29a384b356e65">Heroku コマンド・設定 メモメモ</a></li>
-<li><a href="https://stackoverflow.com/questions/15237366/how-to-execute-a-sql-script-on-heroku">how to execute a .sql script on heroku?</a></li>
-</ul>
               
             </div>
           </div>
@@ -308,10 +273,10 @@ $ heroku git:remote -a &lt;newname&gt;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../html/" class="btn btn-neutral float-right" title="HTML">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../web/" class="btn btn-neutral float-right" title="Web">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../golang/" class="btn btn-neutral" title="Golang"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sphinx/" class="btn btn-neutral" title="Sphinx"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -339,10 +304,10 @@ $ heroku git:remote -a &lt;newname&gt;
           <a href="https://github.com/Doarakko/mkdocs-github-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../golang/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../sphinx/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../html/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../web/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
