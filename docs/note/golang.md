@@ -17,6 +17,12 @@ if err != nil {
 }
 ```
 
+- `time` 型を文字列に変換
+```
+beginAt := time.Now().Format(time.RFC3339)
+endAt := time.Now().Format(time.RFC3339)
+```
+
 ## Research
 - シグネチャ
 - `chan`
