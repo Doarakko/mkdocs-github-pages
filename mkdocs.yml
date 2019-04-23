@@ -1,4 +1,4 @@
-site_name: Doarakko WorkSpace
+site_name: WorkSpace
 use_directory_urls: true 
 theme: 
     name: readthedocs
