@@ -43,3 +43,9 @@ select to_date('2015-01-31', 'YYYYMMDD')+1 date;
 ------------
  2015-01-02
 ```
+
+## PostgreSQL
+- テーブルのレコード全削除
+```
+DELETE FROM table_name;
+```
