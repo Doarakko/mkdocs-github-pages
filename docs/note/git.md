@@ -35,10 +35,17 @@ $ git rm -r --cached .
 ```
 $ git log
 ```
-- 直前のコミットの取り消し
+
+### コミット取り消し
+- ワークディレクトリ取り消し
 ```
 $ git reset --hard HEAD^
 ```
+- ワークディレクトリ変更なし
+```
+$ git reset --soft HEAD^
+```
+
 
 ### diff
 - add 前
