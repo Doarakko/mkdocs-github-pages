@@ -136,6 +136,8 @@
         
             <li><a class="toctree-l4" href="#etc">etc</a></li>
         
+            <li><a class="toctree-l4" href="#_2">コミット取り消し</a></li>
+        
             <li><a class="toctree-l4" href="#diff">diff</a></li>
         
             <li><a class="toctree-l4" href="#reference">Reference</a></li>
@@ -278,10 +280,17 @@
 <pre><code>$ git log
 </code></pre>
 
+<h3 id="_2">コミット取り消し</h3>
 <ul>
-<li>直前のコミットの取り消し</li>
+<li>ワークディレクトリ取り消し</li>
 </ul>
 <pre><code>$ git reset --hard HEAD^
+</code></pre>
+
+<ul>
+<li>ワークディレクトリ変更なし</li>
+</ul>
+<pre><code>$ git reset --soft HEAD^
 </code></pre>
 
 <h3 id="diff">diff</h3>
