@@ -1,7 +1,10 @@
 # Note
 - [Git](./git)
 - [GitHub](./github)
+- [Golang](./golang)
 - [Heroku](./heroku)
+- [HTML](./html)
 - [MkDocs](./mkdocs)
 - [Sphinx](./sphinx)
+- [SQL](./sql)
 - [etc](./command)
