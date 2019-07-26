@@ -53,6 +53,11 @@ $ heroku pg -a <app name>
 $ heroku pg:psql --app <app name> < <file path>
 ```
 
+- Reset database
+```
+$ heroku pg:reset DATABASE
+```
+
 ## Reference
 - [Renaming Apps from the CLI](https://devcenter.heroku.com/articles/renaming-apps)
 - [Heroku コマンド・設定 メモメモ](https://qiita.com/pugiemonn/items/0e69b7a29a384b356e65)
