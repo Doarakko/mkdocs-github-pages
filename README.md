@@ -1,4 +1,4 @@
-# [Mkdocs Github Pages](https://doarakko.github.io/mkdocs-challenge)
+# [Mkdocs Challenge](https://doarakko.github.io/mkdocs-challenge)
 ## Requirements
 - Python 3
 - pip
