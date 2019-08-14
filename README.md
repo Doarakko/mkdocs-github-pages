@@ -1,4 +1,4 @@
-# [Mkdocs Github Pages](https://doarakko.github.io/mkdocs-github-pages/)
+# [Mkdocs Github Pages](https://doarakko.github.io/mkdocs-challenge)
 ## Requirements
 - Python 3
 - pip
@@ -6,8 +6,8 @@
 ## Usage
 ### 1. Download code
 ```
-$ git clone https://github.com/Doarakko/mkdocs-github-pages
-$ cd mkdocs-github-pages
+$ git clone https://github.com/Doarakko/mkdocs-challenge
+$ cd mkdocs-challenge
 ```
 ### 2. Install Python library
 ```
