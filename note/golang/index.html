@@ -72,6 +72,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../event/mediado-go/">MediaDo.go #1</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../event/pre-event-baseball-data-hackathon/">[【プレイベント】パ・リーグ×パーソル　ベースボールデータハッカソン](https://techplay.jp/event/688365)</a>
                 </li>
                 <li class="">
@@ -131,7 +135,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../competitive-programming/">Competitive Programming</a>
+    <a class="" href="../competitive-programming/">Competitive programming</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../django/">Django</a>
                 </li>
                 <li class="">
                     
@@ -150,7 +158,7 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#research">Research</a></li>
+            <li><a class="toctree-l4" href="#a-tour-of-go">A Tour of Go</a></li>
         
         </ul>
     
@@ -172,6 +180,10 @@
                 <li class="">
                     
     <a class="" href="../mkdocs/">MkDocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../react/">React</a>
                 </li>
                 <li class="">
                     
@@ -233,19 +245,19 @@
               
                 <h1 id="golang">Golang</h1>
 <ul>
-<li>変数・メソッドのスコープ<ul>
+<li>変数・メソッドのスコープ</li>
 <li>先頭が大文字: 他パッケージから参照可能</li>
 <li>先頭が小文字: 他パッケージから参照不可</li>
-</ul>
+<li>
+<p>1 回だけの処理を行うための方法</p>
 </li>
 <li>
-<p>1回だけの処理を行うための方法</p>
-<ul>
-<li><code>NewHoge</code> という関数を定義</li>
-<li><code>Sync.once</code> を使用<ul>
-<li>複数の goroutine が呼び出しても実行されるのは1度だけ</li>
-</ul>
+<p><code>NewHoge</code> という関数を定義</p>
 </li>
+<li>
+<p><code>Sync.once</code> を使用</p>
+<ul>
+<li>複数の goroutine が呼び出しても実行されるのは 1 度だけ</li>
 </ul>
 </li>
 <li>
@@ -267,10 +279,309 @@ if err != nil {
 endAt := time.Now().Format(time.RFC3339)
 </code></pre>
 
-<h2 id="research">Research</h2>
+<h2 id="a-tour-of-go"><a href="https://tour.golang.org/list">A Tour of Go</a></h2>
+<h3 id="basics">Basics</h3>
+<h4 id="packages-variables-and-functions">Packages, variables, and functions</h4>
 <ul>
-<li>シグネチャ</li>
-<li><code>chan</code></li>
+<li>rand 関数シード確認: <code>rand.Seed</code></li>
+<li>
+<p>Exported name</p>
+</li>
+<li>
+<p>begin capital letter</p>
+</li>
+<li>
+<p>関数の引数が同じタイプが複数の場合</p>
+</li>
+</ul>
+<pre><code>func add(x, y int) int {
+    return x + y
+}
+</code></pre>
+
+<ul>
+<li>返り値複数の関数</li>
+</ul>
+<pre><code>func swap(x, y string) (string, string) {
+    return y, x
+}
+</code></pre>
+
+<ul>
+<li>named return value</li>
+<li>引数に名前をつけられる</li>
+<li>return に変数指定しなくて OK</li>
+<li>長い関数では可読性下がるので控える</li>
+</ul>
+<pre><code>
+func split(sum int) (x, y int) {
+    x = sum * 4 / 9
+    y = sum - x
+    return
+}
+</code></pre>
+
+<ul>
+<li>zero value</li>
+</ul>
+<pre><code>int: 0
+float64: 0
+bool: false
+string: &quot;&quot;
+</code></pre>
+
+<ul>
+<li>型変換</li>
+<li>Go では C と違い明示的な型変換が必須</li>
+</ul>
+<pre><code>i := 42
+f := float64(i)
+u := uint(f)
+</code></pre>
+
+<ul>
+<li>型推論</li>
+</ul>
+<pre><code>func main() {
+   v := &quot;hello&quot;
+   fmt.Printf(&quot;v is of type %T\n&quot;, v)
+}
+</code></pre>
+
+<h4 id="flow-control-statements-for-if-else-switch-and-defer">Flow control statements: for, if, else, switch and defer</h4>
+<ul>
+<li>
+<p>loop</p>
+</li>
+<li>
+<p>Go のループは for 文のみ</p>
+</li>
+<li>
+<p>{} は必須</p>
+</li>
+<li>
+<p>fmt.Sprint</p>
+</li>
+<li>
+<p>フォーマットした結果を文字列で返す</p>
+</li>
+<li>
+<p>if 文</p>
+</li>
+<li>条件式の前に statement 入れられる</li>
+</ul>
+<pre><code>func pow(x, n, lim float64) float64 {
+    if v:= math.Pow(x, n); v &lt; lim{
+        return v
+    }
+    return lim
+}
+</code></pre>
+
+<ul>
+<li>switch 文</li>
+<li>自動で break 文が入る</li>
+<li>condition なし = if-the-else</li>
+</ul>
+<pre><code>func main()  {
+    t := time.Now()
+    switch {
+    case t.Hour() &lt; 12:
+        fmt.Println(&quot;Good morning&quot;)
+    case t.Hour() &lt; 17:
+        fmt.Println(&quot;afternoon&quot;)
+    default:
+        fmt.Println(&quot;evening&quot;)
+    }
+}
+</code></pre>
+
+<ul>
+<li>defer 文</li>
+<li>関数が return 後に実行</li>
+<li>stack</li>
+</ul>
+<pre><code>func main() {
+    fmt.Println(&quot;counting&quot;)
+    for i := 0; i &lt; 5; i++ {
+        defer fmt.Println(i)
+    }
+    fmt.Println(&quot;done&quot;)
+}
+</code></pre>
+
+<pre><code>counting
+done
+4
+3
+2
+1
+0
+</code></pre>
+
+<h4 id="more-types-structs-slice-and-maps">More types: structs, slice, and maps</h4>
+<ul>
+<li>ポインタ</li>
+<li>Go にはポインタ演算なし</li>
+<li>構造体のポインタ表記面倒なので以下で OK</li>
+</ul>
+<pre><code>(*p).X equal p.X
+</code></pre>
+
+<ul>
+<li>リテラル</li>
+</ul>
+<pre><code>var(
+    v1 = Vertex{1, 2}
+    v2 = Vertex{Y: 1}
+    v3 = Vertex{}
+    p = &amp;Vertex{1, 2}
+)
+
+func  main()  {
+    fmt.Println(v1, p, v2, v3)
+    fmt.Println(v1, *p, v2, v3)
+}
+</code></pre>
+
+<pre><code>{1 2} &amp;{1 2} {0 1} {0 0}
+{1 2} {1 2} {0 1} {0 0}
+</code></pre>
+
+<ul>
+<li>
+<p>Go の配列はリサイズできない</p>
+</li>
+<li>
+<p>リサイズしたい際には配列ではなく slice を使用</p>
+</li>
+<li>
+<p>スライス</p>
+</li>
+<li>参照渡し</li>
+<li>インデックス注意</li>
+<li>a[i:j]<ul>
+<li>i から j - 1 番目の要素</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a href="https://blog.golang.org/go-slices-usage-and-internals">Go Slices: usage and internals</a></li>
+</ul>
+</li>
+</ul>
+<pre><code>primes := [6]int{2, 3, 5, 7, 11, 13}
+var s []int = primes[1:4]
+fmt.Println(s)
+</code></pre>
+
+<pre><code>[3 5 7]
+</code></pre>
+
+<ul>
+<li>
+<p>cap(s)</p>
+</li>
+<li>
+<p>配列の容量</p>
+</li>
+<li>最初の要素からの数</li>
+<li>
+<p><code>basics/slice-len-cap.go</code></p>
+</li>
+<li>
+<p><code>nil</code></p>
+</li>
+<li>
+<p>cap(s) = 0</p>
+</li>
+<li>
+<p><code>range</code></p>
+</li>
+</ul>
+<pre><code>// skip index or value
+for i, _ := range pow
+for _, value := range pow
+
+// index only
+for i := range pow
+</code></pre>
+
+<h3 id="methods-and-interfaces">Methods and interfaces</h3>
+<ul>
+<li><code>v</code> がポインタでなかった場合は Pointer receiver が自動的に呼ばれる</li>
+</ul>
+<pre><code>func (v *Vertex) Scale(f float64) {
+    v.X = v.X * f
+    v.Y = v.Y * f
+}
+
+func main() {
+    v := Vertex{3, 4}
+    v.Scale(2)
+}
+</code></pre>
+
+<p>-</p>
+<pre><code>v := &amp;Vertex{3, 4}
+fmt.Printf(&quot;v: %v\n&quot;, v)
+fmt.Printf(&quot;+v: %+v\n&quot;, v)
+
+[Output]
+v: &amp;{3 4}
++v: &amp;{X:15 Y:20}
+</code></pre>
+
+<ul>
+<li>
+<p><code>interface{}</code></p>
+</li>
+<li>
+<p>空のインターフェース</p>
+</li>
+<li>
+<p>型はなんでも OK</p>
+</li>
+<li>
+<p>型チェック</p>
+</li>
+</ul>
+<pre><code>s, ok := i.(string)
+fmt.Println(s, ok)
+
+[Output]
+hello true
+</code></pre>
+
+<ul>
+<li><a href="https://golang.org/pkg/fmt/#Sprintf"><code>fmt.Sprintf</code></a></li>
+<li>文字列返す</li>
+</ul>
+<h3 id="research">Research</h3>
+<ul>
+<li>
+<p>「&lt;&lt;」 / 「&gt;&gt;」: <a href="http://ubur1114.hatenablog.com/entry/2017/08/05/204723">Golang のシフト演算</a></p>
+</li>
+<li>
+<p>fmt.Sprint</p>
+</li>
+<li>
+<p>sqrt: <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method
+  </a></p>
+</li>
+</ul>
+<pre><code>z -= (z * z - x) / (2 * z)
+</code></pre>
+
+<ul>
+<li>runtime.GOOS</li>
+<li>
+<p>defer 文: <a href="https://blog.golang.org/defer-panic-and-recover">Defer, Panic, and Recover</a></p>
+</li>
+<li>
+<p>Function closures</p>
+</li>
+<li>receiver</li>
 </ul>
               
             </div>

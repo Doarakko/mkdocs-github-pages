@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Competitive Programming - WorkSpace</title>
+  <title>Competitive programming - WorkSpace</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Competitive Programming";
+    var mkdocs_page_name = "Competitive programming";
     var mkdocs_page_input_path = "note/competitive-programming.md";
     var mkdocs_page_url = null;
   </script>
@@ -69,6 +69,10 @@
                 <li class="">
                     
     <a class="" href="../../event/julia-tokyo-8/">[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../event/mediado-go/">MediaDo.go #1</a>
                 </li>
                 <li class="">
                     
@@ -131,13 +135,23 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Competitive Programming</a>
+    <a class="current" href="./">Competitive programming</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#competitive-programming">Competitive Programming</a></li>
+    <li class="toctree-l3"><a href="#competitive-programming">Competitive programming</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#reference">Reference</a></li>
+        
+        </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../django/">Django</a>
                 </li>
                 <li class="">
                     
@@ -166,6 +180,10 @@
                 <li class="">
                     
     <a class="" href="../mkdocs/">MkDocs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../react/">React</a>
                 </li>
                 <li class="">
                     
@@ -212,7 +230,7 @@
         
       
     
-    <li>Competitive Programming</li>
+    <li>Competitive programming</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/note/competitive-programming.md"
@@ -225,9 +243,26 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="competitive-programming">Competitive Programming</h1>
+                <h1 id="competitive-programming">Competitive programming</h1>
 <ul>
-<li>切り上げ</li>
+<li>
+<p>各型の最大, 最小</p>
+</li>
+<li>
+<p><code>INT_MAX</code></p>
+</li>
+<li><code>INT_MIN</code></li>
+<li><code>LLONG_MAX</code></li>
+<li><code>LLONG_MIN</code></li>
+<li><code>DBL_MIN</code></li>
+<li><code>DBL_MAX</code></li>
+<li><code>LDBL_MIN</code></li>
+<li>
+<p><code>LDBL_MAX</code></p>
+</li>
+<li>
+<p>切り上げ</p>
+</li>
 </ul>
 <pre><code>double x = 3.2;
 cout &lt;&lt; ceil(x) &lt;&lt; endl;
@@ -237,9 +272,14 @@ cout &lt;&lt; ceil(x) &lt;&lt; endl;
 </code></pre>
 
 <ul>
-<li>出力の桁数指定<ul>
-<li><code>#include &lt;iomanip&gt;</code></li>
-</ul>
+<li>
+<p>切り捨て</p>
+</li>
+<li>
+<p><code>floor(x)</code></p>
+</li>
+<li>
+<p>出力の桁数指定</p>
 </li>
 </ul>
 <pre><code>double ans = 1.322;
@@ -248,6 +288,37 @@ cout &lt;&lt; setprecision(2) &lt;&lt; ans &lt;&lt; endl;
 [Output]
 1.32
 </code></pre>
+
+<ul>
+<li>
+<p>|a-z| = 26</p>
+</li>
+<li>
+<p>2 進数変換</p>
+</li>
+<li><code>&lt;&gt;</code> 内は桁数を指定</li>
+</ul>
+<pre><code>string s = bitset&lt;20&gt;(x).to_string();
+</code></pre>
+
+<ul>
+<li>
+<p><a href="https://imoz.jp/algorithms/imos_method.html">いもす法</a></p>
+</li>
+<li>
+<p><a href="https://atcoder.jp/contests/abc014/tasks/abc014_3">AtCoder Beginner Contest 014 C</a></p>
+</li>
+<li>
+<p>再帰関数</p>
+</li>
+<li>終了条件を決める</li>
+<li>呼び出度に状態が変わる</li>
+<li>再帰的に関数を呼び出す</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://qiita.com/jumpyoshim/items/20e6b5e70efa466699b4">再帰関数を理解するための最もシンプルな例</a></li>
+</ul>
               
             </div>
           </div>
@@ -255,7 +326,7 @@ cout &lt;&lt; setprecision(2) &lt;&lt; ans &lt;&lt; endl;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../django/" class="btn btn-neutral float-right" title="Django">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../command/" class="btn btn-neutral" title="Command"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -289,7 +360,7 @@ cout &lt;&lt; setprecision(2) &lt;&lt; ans &lt;&lt; endl;
         <span><a href="../command/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../git/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../django/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

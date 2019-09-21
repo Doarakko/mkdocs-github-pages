@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/) - WorkSpace</title>
+  <title>MediaDo.go #1 - WorkSpace</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)";
-    var mkdocs_page_input_path = "event/julia-tokyo-8.md";
+    var mkdocs_page_name = "MediaDo.go #1";
+    var mkdocs_page_input_path = "event/mediado-go.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -66,35 +66,31 @@
                     
     <a class="" href="../apache-arrow-tokyo-meetup-2018/">[Apache Arrow東京ミートアップ2018](https://speee.connpass.com/event/103514/)</a>
                 </li>
+                <li class="">
+                    
+    <a class="" href="../julia-tokyo-8/">[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)</a>
+                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)</a>
+    <a class="current" href="./">MediaDo.go #1</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#juliatokyo-8">JuliaTokyo #8</a></li>
+    <li class="toctree-l3"><a href="#mediadogo-1">MediaDo.go #1</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#dataframes-and-types-with-julia">DataFrames and Types with Julia</a></li>
+            <li><a class="toctree-l4" href="#go-clean-architecture">レガシーシステムのサブシステムとしてGoを導入する - Clean Architectureの採用</a></li>
         
-            <li><a class="toctree-l4" href="#julia-a-fresh-programming-language-for-freshmen">Julia : A Fresh Programming Language for Freshmen</a></li>
+            <li><a class="toctree-l4" href="#gopher">駆け出しgopherがはじめてのバッチ設計で学んだこと</a></li>
         
-            <li><a class="toctree-l4" href="#juliadeep-learning">JuliaでDeep Learning(できるかな？)</a></li>
+            <li><a class="toctree-l4" href="#go_1">パイプラインパターンでGoのバッチ処理をうまく並列化する</a></li>
         
-            <li><a class="toctree-l4" href="#juliaffi">JuliaのFFI</a></li>
-        
-            <li><a class="toctree-l4" href="#_3">覇権を取るパッケージ作成</a></li>
-        
-            <li><a class="toctree-l4" href="#_5">ライトニングトークセッション</a></li>
+            <li><a class="toctree-l4" href="#_3">テストを書こう</a></li>
         
         </ul>
     
 
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../mediado-go/">MediaDo.go #1</a>
                 </li>
                 <li class="">
                     
@@ -240,10 +236,10 @@
         
       
     
-    <li>[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)</li>
+    <li>MediaDo.go #1</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/event/julia-tokyo-8.md"
+        <a href="https://github.com/Doarakko/mkdocs-github-pages/edit/master/docs/event/mediado-go.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -253,196 +249,138 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="juliatokyo-8"><a href="https://juliatokyo.connpass.com/event/100780/">JuliaTokyo #8</a></h1>
-<h2 id="dataframes-and-types-with-julia">DataFrames and Types with Julia</h2>
-<h3 id="ki_chi">@ki_chi</h3>
-<h3 id="julia">Juliaになんのパッケージを使えば抜け人を殲滅できるか</h3>
+                <h1 id="mediadogo-1">MediaDo.go #1</h1>
 <ul>
-<li>DataFrames  </li>
-<li>DataFramesMeta  </li>
-<li>
-<p>JuliaDB</p>
+<li><a href="https://mediado-go.connpass.com/event/140848/">MediaDo.go #1</a></li>
+</ul>
+<h2 id="go-clean-architecture">レガシーシステムのサブシステムとしてGoを導入する - Clean Architectureの採用</h2>
 <ul>
-<li>Database ではないので注意</li>
-<li>現在v1.0でいれられない</li>
+<li>方針<ul>
+<li>改修</li>
+<li>新規</li>
+<li>漸進的に開発</li>
 </ul>
 </li>
-<li>
-<p>Queryverse</p>
-<ul>
-<li>入れるの大変  </li>
-<li>依存関係でこけるので個別で入れることになる</li>
+<li>作戦<ul>
+<li>ハードルを下げる</li>
+<li>スケールを続けられる仕組み</li>
 </ul>
 </li>
-<li>
-<p>現状 DataFrame 使うのが安牌</p>
-</li>
-</ul>
-<h3 id="types">types</h3>
-<ul>
-<li>いろいろな dataframe が乱立  </li>
-<li>
-<p>tabletrauts.jl + iterabletable.jl に合わせる</p>
-<ul>
-<li>interface のみを提供</li>
+<li>手法<ul>
+<li>Go</li>
+<li>マイクロサービス</li>
 </ul>
 </li>
-<li>
-<p>Dataframes の構成と処理を別々にすることが可能</p>
-</li>
-</ul>
-<h3 id="qa">QA</h3>
-<ul>
-<li>
-<p>データ可視化  </p>
-<ul>
-<li>vegaLite / DataVoyager  </li>
-</ul>
-</li>
-<li>
-<p>Julia の速度  </p>
-<ul>
-<li>コンパイルしてからやるので体感遅い. 一度コードが組めれば計算速速い  </li>
-</ul>
-</li>
-<li>
-<p>Julia のメモリ管理による優位性  </p>
-<ul>
-<li>Python も R も C++でやっているので、その点の優位性はないのでは</li>
+<li>モノレポ<ul>
+<li>1つのリポジトリで複数のモジュール（サービス・パッケージ）を管理</li>
+<li>CI の設定必要</li>
 </ul>
 </li>
 </ul>
-<h3 id="_1">感想</h3>
+<h3 id="gophercon">GopherCon</h3>
 <ul>
-<li>Juliaを使うのは愛がないと厳しい  </li>
+<li>初心者でも十分楽しめる</li>
+<li>MediaDo では社員負担ゼロで参加可能</li>
 </ul>
-<h2 id="julia-a-fresh-programming-language-for-freshmen">Julia : A Fresh Programming Language for Freshmen</h2>
-<h3 id="hsugawa">@hsugawa</h3>
+<h3 id="reaserch">Reaserch</h3>
 <ul>
-<li>
-<p>大学の演習でJuliaを使っている  </p>
-<ul>
-<li>対象: 大学1年次（PC / 数学素人）</li>
+<li>クリーンアーキテクチャ</li>
+<li>マイクロサービス</li>
 </ul>
-</li>
-<li>
-<p>演習課題の提出を GitHub に  </p>
+<h2 id="gopher">駆け出しgopherがはじめてのバッチ設計で学んだこと</h2>
 <ul>
-<li>Julia の日本語資料がないのはマイナス  </li>
+<li>AWS Batch<ul>
+<li>リソースの割り当てを管理</li>
 </ul>
 </li>
-</ul>
-<h3 id="_2">感想</h3>
-<ul>
-<li>グループ演習にGitHubを使えば就職後に役立つのでは  </li>
-<li>大学での講義の話を聞けたのは新鮮  </li>
-</ul>
-<h2 id="juliadeep-learning">JuliaでDeep Learning(できるかな？)</h2>
-<h3 id="satoshiterasaki">@SatoshiTerasaki</h3>
-<ul>
-<li>
-<p>flux</p>
-<ul>
-<li>julia で書かれた機械学習ライブラリ  </li>
+<li>AWS Step Functions<ul>
+<li>JSON 形式で作成</li>
+<li>ワークフロー図 でバッチを管理（結果によって処理を場合分け）</li>
+<li>ステップが遷移した回数に対する課金</li>
 </ul>
 </li>
-<li>
-<p>学習済みモデルでのfinetunigもいける</p>
-</li>
 </ul>
-<h2 id="juliaffi">JuliaのFFI</h2>
-<h3 id="mrkn">@mrkn</h3>
+<h3 id="go">Go で詰まったこと</h3>
 <ul>
-<li>ruby でデータ分析をできるようなものを開発  </li>
-</ul>
-<h3 id="reference">Reference</h3>
-<ul>
-<li><a href="https://arrow.apache.org/">apache arrow</a>  </li>
-<li>
-<p><a href="https://speee.connpass.com/event/103514/">Apache Arrow東京ミートアップ2018</a>  </p>
-</li>
-<li>
-<p>仕事で役立たせるのは難しい（できなくはない）</p>
-<ul>
-<li>これから伸びる言語を最初に触っているのは大きなアドバンテージ  </li>
-</ul>
-</li>
-<li>
-<p>他言語とやりとりするための機能は用意されている  </p>
-</li>
-<li>
-<p>Python などの他言語をいきなり Julia に書き換えるのではなく少しずつやる</p>
-<ul>
-<li>PyCall.jl / RCall.jl で Python / R のプログラムを呼びだし </li>
-<li>徐々に書き換えていく  </li>
-</ul>
-</li>
-<li>
-<p>apache arrow  </p>
-<ul>
-<li>Python / R / etc それぞれでやっている  <ul>
-<li>ひとつに統合するために開発  </li>
-</ul>
-</li>
-<li>apatch の正式プロジェクト  </li>
+<li><code>.env</code> をバイナリにできない<ul>
+<li>AWS コンソールで設定</li>
+<li><code>.env</code> 含めて zip ファイルを作成</li>
+<li>アセットツール（statik、packr）を使用</li>
 </ul>
 </li>
 </ul>
 <h3 id="research">Research</h3>
 <ul>
-<li>PyCall</li>
-<li>FFI</li>
+<li>AWS Batch</li>
+<li>AWS Step Functions</li>
+<li>aws lambda</li>
 </ul>
-<h2 id="_3">覇権を取るパッケージ作成</h2>
-<h3 id="bicycle1885">@bicycle1885</h3>
+<h2 id="go_1">パイプラインパターンでGoのバッチ処理をうまく並列化する</h2>
 <ul>
-<li>direnv  <ul>
-<li>プロジェクトごとに環境変数を設定可能  </li>
-</ul>
-</li>
-<li>revise.jl  <ul>
-<li>julia を再起動せず、パッケージのコードを更新可能  </li>
-<li>パッケージ開発に便利  </li>
+<li>コルーチンのリーク<ul>
+<li>非メインのコルーチンが終了せず残り続ける</li>
+<li>gc で回収されない</li>
 </ul>
 </li>
 </ul>
-<h3 id="_4">覇権をとるには</h3>
+<h3 id="_1">バッチ処理の機会</h3>
 <ul>
-<li>
-<p>アピールする  </p>
-<ul>
-<li>GitHubにあげただけではだれもつかわない</li>
+<li>バッチ処理でユーザデータの不整合を解消</li>
+<li>ユーザからの個人情報の削除要請</li>
+<li>カラム追加時に既存レコードのデータ埋め</li>
 </ul>
-</li>
-<li>
-<p>discourse でアナウンス  </p>
-</li>
-<li>GitHub 映え  </li>
-<li>手厚いサポート  </li>
-<li>既存パッケージにプルリクをおくりつける  </li>
+<h3 id="_2">課題</h3>
+<ul>
+<li>処理量が多いので並行処理が複雑</li>
+<li>可読性悪くてレビューがつらい</li>
+<li>ゴルーチン、チャネルがちゃんと使えているか不安</li>
+</ul>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://blog.golang.org/pipelines">Go Concurrency Patterns: Pipelines and cancellation</a></li>
+<li><a href="https://speakerdeck.com/yusukemisa/batutichu-li-wopaipurainpatandeshang-shou-kuyaru">バッチ処理をパイプラインパターンで上手くやる</a></li>
 </ul>
 <h3 id="research_1">Research</h3>
 <ul>
-<li>direnv  </li>
-<li>discourse  <ul>
-<li>julia のコミュニティ  </li>
+<li>パイプライン</li>
+<li>ファンイン</li>
+</ul>
+<h2 id="_3">テストを書こう</h2>
+<ul>
+<li>コードの質を担保する方法<ul>
+<li>静的解析, テスト, QA, 監視</li>
+<li>後ろに行く程つらくなる</li>
+</ul>
+</li>
+<li>tenntenn はテストを別パッケージに書く<ul>
+<li>そのパッケージを使う側の気持ちで書ける</li>
+<li>使いづらいパッケージなのかどうか分かれば設計を見直せる</li>
+</ul>
+</li>
+<li>テーブル駆動テスト<ul>
+<li>テストロジックとデータが分離することでコードが見やすくなる</li>
 </ul>
 </li>
 </ul>
-<h2 id="_5">ライトニングトークセッション</h2>
-<h3 id="juliadocumentation">JuliaのDocumentationについて</h3>
+<h3 id="_4">テスティングフレームワークを使わない理由</h3>
 <ul>
-<li>Julia の Documentation  <ul>
-<li>markdown  </li>
-<li>html  </li>
-<li>tex  </li>
+<li>Go の testing パッケージが多く使用される<ul>
+<li>あまりテストフレームワークを使わない</li>
+</ul>
+</li>
+<li>テストは Go で書く<ul>
+<li>テストのための新しいミニ言語を作らない</li>
 </ul>
 </li>
 </ul>
-<h3 id="julia_1">Juliaと画像処理</h3>
-<h4 id="dsuke_kato">@Dsuke_KATO</h4>
+<h3 id="reference_1">Reference</h3>
 <ul>
-<li>juliaimage</li>
+<li><a href="https://docs.google.com/presentation/d/1aUMcNW7CMfXstDtKPQbMyfBz0sldp4yPbXvrJScYKvk/edit">テストを書こう</a></li>
+</ul>
+<h3 id="research_2">Research</h3>
+<ul>
+<li>サブテスト</li>
+<li>テーブル駆動テスト</li>
 </ul>
               
             </div>
@@ -451,10 +389,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mediado-go/" class="btn btn-neutral float-right" title="MediaDo.go #1">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pre-event-baseball-data-hackathon/" class="btn btn-neutral float-right" title="[【プレイベント】パ・リーグ×パーソル　ベースボールデータハッカソン](https://techplay.jp/event/688365)">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../apache-arrow-tokyo-meetup-2018/" class="btn btn-neutral" title="[Apache Arrow東京ミートアップ2018](https://speee.connpass.com/event/103514/)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../julia-tokyo-8/" class="btn btn-neutral" title="[JuliaTokyo #8](https://juliatokyo.connpass.com/event/100780/)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -482,10 +420,10 @@
           <a href="https://github.com/Doarakko/mkdocs-github-pages/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../apache-arrow-tokyo-meetup-2018/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../julia-tokyo-8/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../mediado-go/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../pre-event-baseball-data-hackathon/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
