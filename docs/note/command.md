@@ -58,3 +58,15 @@ $ tmux
 ウインドウ切替: cntl + B, O
 ウインドウ分割: cntl + B, %
 ```
+
+## Yarn
+- upgrade
+```
+$ yarn upgrade
+```
+
+## npm
+- Update npm
+```
+$ npm install -g npm
+```
